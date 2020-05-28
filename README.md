@@ -1,32 +1,3 @@
-        <script>
-            var config = {
-                startOnLoad:true,
-                flowchart:{
-                    useMaxWidth:false,
-                    htmlLabels:true
-                }
-            };
-            mermaid.initialize(config);
-            $(function(){
-                var elements = document.getElementsByClassName("language-mermaid");
-                for (var i = elements.length; i--;) {
-                    element = elements[i];
-                    var graphDefinition = element.innerText;
-                    if (graphDefinition) {
-                        var svg = mermaid.render('ha_mermaid_' + i, graphDefinition, function(svg){});
-                        if (svg) {
-                            var svgElement = document.createElement('div');
-                            preNode = element.parentNode;
-                            svgElement.innerHTML = svg;
-                            svgElement.setAttribute('class', 'mermaid');
-                            svgElement.setAttribute('data-processed', 'true');
-                            preNode.parentNode.replaceChild(svgElement, preNode);
-                        }
-                    }
-                }
-            });
-        </script>
-
 # 基于MVC模式的一个简单购物车实例
 
 ##  一、开发环境
@@ -44,49 +15,17 @@
 
 2. 系统设计
 
-   ```
-   graph TD
-   	A(Login in) --> B{验证码是否正确}
-   	B --> |No|A
-   	B --> |Yes|C{用户名与密码是否正确}
-   	C --> |No|A
-   	C --> D[Show book list]
-   	D --> |Click shopCart button|E[Show shopCart info]
-   	D --> |Click more detail|F[Show book price quantity author]
-   	E -->|Click Buy button|G[Update datebase,display payment success info]
-   	E -->|Click Back button| D
-   	F -->|Click Buy button| G
-   	F -->|Click Back button| D
-   	G --> H(Login out)
-   
-   classDef className fill:#ffcc00,stroke:#000,stroke-width:2px,font-family:consolas;
-   class A,B,C,D,E,F,G,H className;
-   	
+   [![](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVERcblx0QShMb2dpbiBpbikgLS0-IEJ76aqM6K-B56CB5piv5ZCm5q2j56GufVxuXHRCIC0tPiB8Tm98QVxuXHRCIC0tPiB8WWVzfEN755So5oi35ZCN5LiO5a-G56CB5piv5ZCm5q2j56GufVxuXHRDIC0tPiB8Tm98QVxuXHRDIC0tPiBEW1Nob3cgYm9vayBsaXN0XVxuXHREIC0tPiB8Q2xpY2sgc2hvcENhcnQgYnV0dG9ufEVbU2hvdyBzaG9wQ2FydCBpbmZvXVxuXHREIC0tPiB8Q2xpY2sgbW9yZSBkZXRhaWx8RltTaG93IGJvb2sgcHJpY2UgcXVhbnRpdHkgYXV0aG9yXVxuXHRFIC0tPnxDbGljayBCdXkgYnV0dG9ufEdbVXBkYXRlIGRhdGViYXNlLGRpc3BsYXkgcGF5bWVudCBzdWNjZXNzIGluZm9dXG5cdEUgLS0-fENsaWNrIEJhY2sgYnV0dG9ufCBEXG5cdEYgLS0-fENsaWNrIEJ1eSBidXR0b258IEdcblx0RiAtLT58Q2xpY2sgQmFjayBidXR0b258IERcblx0RyAtLT4gSChMb2dpbiBvdXQpXG5cbmNsYXNzRGVmIGNsYXNzTmFtZSBmaWxsOiNmZmNjMDAsc3Ryb2tlOiMwMDAsc3Ryb2tlLXdpZHRoOjJweCxmb250LWZhbWlseTpjb25zb2xhcztcbmNsYXNzIEEsQixDLEQsRSxGLEcsSCBjbGFzc05hbWU7XG5cdFxuXHRcdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In19)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVERcblx0QShMb2dpbiBpbikgLS0-IEJ76aqM6K-B56CB5piv5ZCm5q2j56GufVxuXHRCIC0tPiB8Tm98QVxuXHRCIC0tPiB8WWVzfEN755So5oi35ZCN5LiO5a-G56CB5piv5ZCm5q2j56GufVxuXHRDIC0tPiB8Tm98QVxuXHRDIC0tPiBEW1Nob3cgYm9vayBsaXN0XVxuXHREIC0tPiB8Q2xpY2sgc2hvcENhcnQgYnV0dG9ufEVbU2hvdyBzaG9wQ2FydCBpbmZvXVxuXHREIC0tPiB8Q2xpY2sgbW9yZSBkZXRhaWx8RltTaG93IGJvb2sgcHJpY2UgcXVhbnRpdHkgYXV0aG9yXVxuXHRFIC0tPnxDbGljayBCdXkgYnV0dG9ufEdbVXBkYXRlIGRhdGViYXNlLGRpc3BsYXkgcGF5bWVudCBzdWNjZXNzIGluZm9dXG5cdEUgLS0-fENsaWNrIEJhY2sgYnV0dG9ufCBEXG5cdEYgLS0-fENsaWNrIEJ1eSBidXR0b258IEdcblx0RiAtLT58Q2xpY2sgQmFjayBidXR0b258IERcblx0RyAtLT4gSChMb2dpbiBvdXQpXG5cbmNsYXNzRGVmIGNsYXNzTmFtZSBmaWxsOiNmZmNjMDAsc3Ryb2tlOiMwMDAsc3Ryb2tlLXdpZHRoOjJweCxmb250LWZhbWlseTpjb25zb2xhcztcbmNsYXNzIEEsQixDLEQsRSxGLEcsSCBjbGFzc05hbWU7XG5cdFxuXHRcdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In19)
    
    
-   	
-   	
-   ```
+   
 3. 页面跳转
+
    
 
-   ```
-   graph TD
-   	A(Submi.jsp) --> B(SubmitResult.java)
-   	B --> C(Doget.java)
-   	C --> D(Showbook.jsp?start=1)
-   	D -->E(AddCart.java)
-   	D -->F(Detail.jsp)
-   	F -->D
-   	F-->E
-   	E -->G(SerchShopCart.jsp)
-   	G -->D
-   	G-->H(AfterPaid.java)
-   	H-->I(Paid.jsp)
-   
-   classDef className fill:#ffcc00,stroke:#000,stroke-width:1px,font-family:consolas;
-   class A,B,C,D,E,F,G,H,I className;
-   ```
+   [![](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVERcblx0QShTdWJtaS5qc3ApIC0tPiBCKFN1Ym1pdFJlc3VsdC5qYXZhKVxuXHRCIC0tPiBDKERvZ2V0LmphdmEpXG5cdEMgLS0-IEQoU2hvd2Jvb2suanNwP3N0YXJ0PTEpXG5cdEQgLS0-RShBZGRDYXJ0LmphdmEpXG5cdEQgLS0-RihEZXRhaWwuanNwKVxuXHRGIC0tPkRcblx0Ri0tPkVcblx0RSAtLT5HKFNlcmNoU2hvcENhcnQuanNwKVxuXHRHIC0tPkRcblx0Ry0tPkgoQWZ0ZXJQYWlkLmphdmEpXG5cdEgtLT5JKFBhaWQuanNwKVxuXG5jbGFzc0RlZiBjbGFzc05hbWUgZmlsbDojZmZjYzAwLHN0cm9rZTojMDAwLHN0cm9rZS13aWR0aDoxcHgsZm9udC1mYW1pbHk6Y29uc29sYXM7XG5jbGFzcyBBLEIsQyxELEUsRixHLEgsSSBjbGFzc05hbWU7XG5cblxuXHRcblx0XHQiLCJtZXJtYWlkIjp7InRoZW1lIjoiZm9yZXN0In19)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVERcblx0QShTdWJtaS5qc3ApIC0tPiBCKFN1Ym1pdFJlc3VsdC5qYXZhKVxuXHRCIC0tPiBDKERvZ2V0LmphdmEpXG5cdEMgLS0-IEQoU2hvd2Jvb2suanNwP3N0YXJ0PTEpXG5cdEQgLS0-RShBZGRDYXJ0LmphdmEpXG5cdEQgLS0-RihEZXRhaWwuanNwKVxuXHRGIC0tPkRcblx0Ri0tPkVcblx0RSAtLT5HKFNlcmNoU2hvcENhcnQuanNwKVxuXHRHIC0tPkRcblx0Ry0tPkgoQWZ0ZXJQYWlkLmphdmEpXG5cdEgtLT5JKFBhaWQuanNwKVxuXG5jbGFzc0RlZiBjbGFzc05hbWUgZmlsbDojZmZjYzAwLHN0cm9rZTojMDAwLHN0cm9rZS13aWR0aDoxcHgsZm9udC1mYW1pbHk6Y29uc29sYXM7XG5jbGFzcyBBLEIsQyxELEUsRixHLEgsSSBjbGFzc05hbWU7XG5cblxuXHRcblx0XHQiLCJtZXJtYWlkIjp7InRoZW1lIjoiZm9yZXN0In19)
+
+
 
    
 
@@ -131,4 +70,8 @@
 ## 三、实验演示
 
 <iframe src="//player.bilibili.com/player.html?aid=925561380&bvid=BV14T4y137Uk&cid=189211982&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+
+
+
 

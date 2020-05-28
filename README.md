@@ -17,7 +17,7 @@
 
 2. 系统设计
 
-   ```mermaid
+   ```
    graph TD
    	A(Login in) --> B{验证码是否正确}
    	B --> |No|A
@@ -43,7 +43,7 @@
 3. 页面跳转
    
 
-   ```mermaid
+   ```
    graph TD
    	A(Submi.jsp) --> B(SubmitResult.java)
    	B --> C(Doget.java)

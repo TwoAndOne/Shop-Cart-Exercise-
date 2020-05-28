@@ -1,0 +1,10 @@
+body,h1,h2,h3,h4,h5,h6,p,ol,dl,dt,dd,b,input{padding:0;margin:0;box-sizing: border-box;}
+h1,h2,h3,h4,h5,h6{font-weight:normal;font-size:12px;}
+button{outline: none;border: none;background: none;}
+input{
+    outline: none;
+    border-radius: 0;
+}
+img{border:none;}
+p{font-weight:normal;font-size:.2rem;}
+

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context reloadable="true">
+	<Resourse name="jdbc/cartDB"
+		auth="Container"
+		type="javax.sql.DataSource"
+		maxActive="100"
+		maxIdle="30"
+		maxWait="10000"
+		username="root"
+		password="root"
+		driverClassName="com.mysql.cj.jdbc.Driver"
+		url="jdbc:mysql://localhost:3306/user?useUnicode=true&amp;characterEncoding=UTF-8&amp;useJDBCComplaintTimezoneShift=true&amp;serverTimezone=GMT%2B8" />
+</Context>

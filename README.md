@@ -1,3 +1,5 @@
+<script src="mermaid.full.min.js"></script>
+
 # 基于MVC模式的一个简单购物车实例
 
 ##  一、开发环境
@@ -101,7 +103,5 @@
 
 ## 三、实验演示
 
-<iframe src="//player.bilibili.com/player.html?aid=925561380&bvid=BV14T4y137Uk&cid=189211982&page=1" scrolling="no" height=498 width=510 frameborder=0 allowfullscreen="true"> </iframe>
-
-
+<iframe src="//player.bilibili.com/player.html?aid=925561380&bvid=BV14T4y137Uk&cid=189211982&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 

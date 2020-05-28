@@ -71,7 +71,9 @@
 
 <iframe src="//player.bilibili.com/player.html?aid=925561380&bvid=BV14T4y137Uk&cid=189211982&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
+本来想嵌入视频的，但是好像GFM不支持
 
+[实验视频解说](https://www.bilibili.com/video/BV14T4y137Uk/)
 
 
 
